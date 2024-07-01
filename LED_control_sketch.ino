@@ -48,12 +48,12 @@ void loop() {
 
   // Determine LED status based on water level
   if (difference >= 30) {
-    digitalWrite(greenLed, HIGH);  // Green LED ON
-    digitalWrite(redLed, LOW);     // Red LED OFF
+    digitalWrite(greenLed, HIGH);  
+    digitalWrite(redLed, LOW);     
   } else {
-    digitalWrite(greenLed, LOW);   // Green LED OFF
-    digitalWrite(redLed, HIGH);    // Red LED ON
+    digitalWrite(greenLed, LOW);   
+    digitalWrite(redLed, HIGH);    
   }
 
-  delay(2000);  // Delay for stability
+  delay(2000);  
 }

@@ -1,4 +1,5 @@
 Water Level Management System
+
 Description
 The Water Level Management System is designed to monitor and control the water levels in a reservoir or tank. It provides real-time data on water levels and automates actions based on predefined thresholds to ensure efficient water management.
 
@@ -11,6 +12,7 @@ User Interface: Provides a user-friendly interface for system configuration and 
 
 
 Usage
+
 Dashboard: Upon accessing the application, the dashboard displays real-time water level data and status.
 Settings: Configure threshold levels, email notifications, and other settings in the admin panel.
 Logs: View historical water level data and system logs for analysis.

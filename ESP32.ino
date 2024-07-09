@@ -1,3 +1,6 @@
+#include "LiquidCrystal_I2C.h"
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
 const int trigPin = 18;
 const int echoPin = 19;
 
@@ -19,7 +22,9 @@ int calculateWaterLevel(int distance) {
 
 void setup() {
   Serial.begin(115200);
-  
+  lcd.init();
+  lcd.backlight();
+
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(greenLedPin, OUTPUT);
@@ -48,12 +53,13 @@ void loop() {
   
   int waterLevel = calculateWaterLevel(distance);
   
-  Serial.print("Distance: ");
-  Serial.print(distance);
-  Serial.print(" cm, Water Level: ");
-  Serial.print(waterLevel);
-  Serial.println(" cm");
-  
+  lcd.setCursor(1,0 );
+  lcd.print("Water Level: ");
+ 
+  lcd.setCursor(1,1);
+  lcd.print(waterLevel);
+  lcd.print(" cm");
+
   digitalWrite(greenLedPin, LOW);
   digitalWrite(redLedPin, LOW);
   

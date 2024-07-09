@@ -18,21 +18,21 @@ __User Interface:<br>__
 Provides a user-friendly interface for system configuration and monitoring where the water levels shall always be displayed on the i2c lcd display and sms alerts shall be sent to screen display mobile phones whenever the water levels exceed the set critical levels range 
 
 
-**Usage**
+**Usage**<br>
 
 for water level usage patterns we shall use thingspeak.com iot data visualisation platform so you may need to create an account with it if you domt have one.
 
-**Dashboard:** 
+<br>**Dashboard:** <br>
 Upon accessing the cloud platform fir the project, the dashboard displays real-time water level data and status with usage line graphs and time period.
-**Settings:** 
+<br>**Settings:**<br> 
 Configure threshold levels, email notifications, and other settings in the code snippets included in the github repository for the different components.
-**Logs:** View historical water level data and system logs for analysis.
-__Contributing__
+<br>**Logs:** <br>View historical water level data and system logs for analysis.
+<br>__Contributing__<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.
 
 
 Acknowledgements
 Sensor Integration: Thanks to Arduino for their sensor integration support and great thanks to our project coordinator Mr. Engineer Baino for his endless support and guidance as we work towards archieving the objectives of our project.
 
-For support, reach out to: juniormusasizi6@gmail.com,  arindaj33@gmail.com, alvinnahereza@gmail.com
+For support, reach out to: juniormusasizi6@gmail.com,  arindaj33@gmail.com, alvinnahereza@gmail.com, mutsakaemmason@gmail.com, mayaj5424@gmail.com
 

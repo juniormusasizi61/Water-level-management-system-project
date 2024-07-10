@@ -20,7 +20,7 @@ Provides a user-friendly interface for system configuration and monitoring where
 
 **Usage**<br>
 
-for water level usage patterns we shall use thingspeak.com iot data visualisation platform so you may need to create an account with it if you domt have one.
+for water level usage patterns we shall use thingspeak.com iot data visualisation platform so you may need to create an account with it if you donot have one.
 
 <br>**Dashboard:** <br>
 Upon accessing the cloud platform fir the project, the dashboard displays real-time water level data and status with usage line graphs and time period.

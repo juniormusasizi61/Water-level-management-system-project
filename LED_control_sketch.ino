@@ -6,7 +6,8 @@ const int echoPin = 3;  // Echo pin
 
 // Define pins for LEDs indicating water levels
 const int greenLed = 4;  // Green LED for high water level
-const int redLed = 5;    // Red LED for low water level
+const int redLed = 5;
+const int  buzzerpin = 6;   // Red LED for low water level
 
 // Speed of sound in air in cm/ms at temperature around 20°C
 #define   Tank_height   47 // cm/ms
@@ -20,6 +21,7 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(greenLed, OUTPUT);
   pinMode(redLed, OUTPUT);
+  pinMode(buzzerpin, OUTPUT);
 }
 
 void loop() {
@@ -52,7 +54,8 @@ void loop() {
     digitalWrite(redLed, LOW);     
   } else {
     digitalWrite(greenLed, LOW);   
-    digitalWrite(redLed, HIGH);    
+    digitalWrite(redLed, HIGH); 
+    digitalwrite(buzzerpin, HIGH);
   }
 
   delay(2000);  

@@ -30,12 +30,17 @@ Configure threshold levels, email notifications, and other settings in the code 
 
 <br>**Logs:** <br>View historical water level data and system logs for analysis.
 
-<br>**Contributing**__<br>
+<br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.
 
 
-Acknowledgements
+**Acknowledgements**
 Sensor Integration: Thanks to Arduino for their sensor integration support and great thanks to our project coordinator Mr. Engineer Baino for his endless support and guidance as we work towards archieving the objectives of our project.
 
-For support, reach out to: juniormusasizi6@gmail.com,  arindaj33@gmail.com, alvinnahereza@gmail.com, mutsakaemmason@gmail.com, mayaj5424@gmail.com
+For support, reach out to: 
+alvinnahereza@gmail.com
+juniormusasizi6@gmail.com
+arindaj33@gmail.com
+mutsakaemmason@gmail.com
+mayaj5424@gmail.com
 

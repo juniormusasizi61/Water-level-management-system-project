@@ -1,27 +1,46 @@
-//include the newping library #
-#include "NewPing.h"
-// Define pins for HC-SR04 sensor
-const int trigPin = 2;  // Trigger pin
-const int echoPin = 3;  // Echo pin
+#include <SoftwareSerial.h>
+#include "LiquidCrystal_I2C.h"
+LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Define pins for LEDs indicating water levels
-const int greenLed = 4;  // Green LED for high water level
-const int redLed = 5;
-const int  buzzerpin = 6;   // Red LED for low water level
+SoftwareSerial mySerial(3, 2); //SIM800L Tx & Rx is connected to Arduino #3 & #2
 
-// Speed of sound in air in cm/ms at temperature around 20°C
-#define   Tank_height   47 // cm/ms
 
-//setup pins and maximum distance 
-NewPing sonar(trigPin, echoPin, Tank_height);
+const int trigPin = 7;
+const int echoPin = 8;
+
+const int greenLedPin = 4;
+const int redLedPin = 5;
+const int buzzerPin = 6;
+
+const int maxDistance = 50;
+
+long duration;
+int distance;
+
+int calculateWaterLevel(int distance) {
+  int waterLevel = maxDistance - distance;
+  if (waterLevel < 0) {
+    waterLevel = 0; 
+  }
+  return waterLevel;
+}
 
 void setup() {
-  Serial.begin(9600);  // Initialize serial communication
+  Serial.begin(115200);
+  lcd.init();
+  lcd.backlight();
+
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
-  pinMode(greenLed, OUTPUT);
-  pinMode(redLed, OUTPUT);
-  pinMode(buzzerpin, OUTPUT);
+  pinMode(greenLedPin, OUTPUT);
+  pinMode(redLedPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  digitalWrite(greenLedPin, LOW);
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+
+  Serial.println("Setup complete");
 }
 
 void loop() {
@@ -32,31 +51,64 @@ void loop() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   
-  // Read the distance in centimeters
-  int height = sonar.ping_cm();
+  duration = pulseIn(echoPin, HIGH);
   
-  // Calculate the difference from Tank_height
-  int difference = Tank_height - height;
+  Serial.print("Duration: ");
+  Serial.println(duration);
   
-  // Output for debugging
-  Serial.print("Raw Distance: ");
-  Serial.print(height);
-  Serial.println(" cm");
+  distance = duration * 0.034 / 2;
   
-  // Output to Serial Monitor
-  Serial.print("Calculated Water level: ");
-  Serial.print(difference);
-  Serial.println(" cm");
+  int waterLevel = calculateWaterLevel(distance);
+  
+  lcd.setCursor(1,0 );
+  lcd.print("Water Level: ");
+ 
+  lcd.setCursor(1,1);
+  lcd.print(waterLevel);
+  lcd.print(" cm");
 
-  // Determine LED status based on water level
-  if (difference >= 30) {
-    digitalWrite(greenLed, HIGH);  
-    digitalWrite(redLed, LOW);     
+  digitalWrite(greenLedPin, LOW);
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+  
+  if (waterLevel >= 30) {
+    digitalWrite(greenLedPin, HIGH);
+
   } else {
-    digitalWrite(greenLed, LOW);   
-    digitalWrite(redLed, HIGH); 
-    digitalwrite(buzzerpin, HIGH);
-  }
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+   
+  
+  //Begin serial communication with Arduino and SIM800L
+  mySerial.begin(9600);
 
-  delay(2000);  
+  Serial.println("Initializing..."); 
+  delay(1000);
+
+  mySerial.println("AT"); //Once the handshake test is successful, it will back to OK
+  updateSerial();
+
+  mySerial.println("AT+CMGF=1"); // Configuring TEXT mode
+  updateSerial();
+ mySerial.println("AT+CMGS=\"+256754738336\"");//change ZZ with country code and xxxxxxxxxxx with phone number to sms
+  updateSerial();
+  mySerial.print("hey! water levels are getting low. do the needfull to make sure people are in a safe state of having enough water...."); //text content
+  updateSerial();
+  mySerial.write(26);
+
+}
+
+  
+  delay(2000);
+}
+void updateSerial(){
+  delay(6000);
+  while (Serial.available()) 
+  {
+    mySerial.write(Serial.read());//Forward what Serial received to Software Serial Port
+  }
+  while(mySerial.available()) 
+  {
+    Serial.write(mySerial.read());//Forward what Software Serial received to Serial Port
+  }
 }

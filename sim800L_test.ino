@@ -1,6 +1,7 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(3, 2); //SIM800L Tx & Rx is connected to Arduino #3 & #2
+SoftwareSerial mySerial(3, 2); 
+
 
 void setup()
 {
@@ -10,7 +11,7 @@ void setup()
   //Begin serial communication with Arduino and SIM800L
   mySerial.begin(9600);
 
-  Serial.println("Initializing..."); 
+  Serial.println("Initializing....."); 
   delay(1000);
 
   mySerial.println("AT"); 
@@ -20,7 +21,7 @@ void setup()
   updateSerial();
  mySerial.println("AT+CMGS=\"+256754738336\"");
   updateSerial();
-  mySerial.print("Hey! water levels are getting low. Please do the needfull to make sure people are in a safe state of having enough water."); //text content
+  mySerial.print("Hey! water levels are getting low. Please do the needfull to make sure people are in a safe state of having enough water...."); //text content
   updateSerial();
   mySerial.write(26);
 }
@@ -29,15 +30,17 @@ void loop()
 {
 }
 
+
 void updateSerial()
 {
   delay(500);
   while (Serial.available()) 
   {
-    mySerial.write(Serial.read());//Forward what Serial received to Software Serial Port
+  
+    mySerial.write(Serial.read());
   }
   while(mySerial.available()) 
   {
-    Serial.write(mySerial.read());//Forward what Software Serial received to Serial Port
+    Serial.write(mySerial.read());
   }
 }

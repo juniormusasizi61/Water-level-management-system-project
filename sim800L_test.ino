@@ -2,7 +2,6 @@
 
 SoftwareSerial mySerial(3, 2); 
 
-
 void setup()
 {
   //Begin serial communication with Arduino and Arduino IDE (Serial Monitor)
@@ -19,24 +18,41 @@ void setup()
 
   mySerial.println("AT+CMGF=1"); 
   updateSerial();
- mySerial.println("AT+CMGS=\"+256754738336\"");
-  updateSerial();
-  mySerial.print("Hey! water levels are getting low. Please do the needfull to make sure people are in a safe state of having enough water...."); //text content
-  updateSerial();
-  mySerial.write(26);
+
+  // List of phone numbers
+  const char* phoneNumbers[] = {
+    "+256754738336",
+    "+256754738337",
+    "+256754738338",
+    "+256754738339",
+    "+256754738340"
+  };
+
+  const char* message = "Hey! water levels are getting low. Please do the needful to make sure people are in a safe state of having enough water....";
+
+  // Highlighted part: Loop through the phone numbers and send SMS to each one
+  for (int i = 0; i < 5; i++) {
+    mySerial.print("AT+CMGS=\"");
+    mySerial.print(phoneNumbers[i]);
+    mySerial.println("\"");
+    updateSerial();
+    mySerial.print(message); //text content
+    updateSerial();
+    mySerial.write(26);
+    updateSerial();
+    delay(1000); 
+  }
 }
 
 void loop()
 {
 }
 
-
 void updateSerial()
 {
   delay(500);
   while (Serial.available()) 
   {
-  
     mySerial.write(Serial.read());
   }
   while(mySerial.available()) 

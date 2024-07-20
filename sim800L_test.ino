@@ -1,6 +1,6 @@
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(3, 2); 
+SoftwareSerial mySerial(3, 2); //SIM800L Tx & Rx is connected to Arduino #3 & #2
 
 void setup()
 {
@@ -10,7 +10,7 @@ void setup()
   //Begin serial communication with Arduino and SIM800L
   mySerial.begin(9600);
 
-  Serial.println("Initializing....."); 
+  Serial.println("Initializing..."); 
   delay(1000);
 
   mySerial.println("AT"); 
@@ -18,30 +18,11 @@ void setup()
 
   mySerial.println("AT+CMGF=1"); 
   updateSerial();
-
-  // List of phone numbers
-  const char* phoneNumbers[] = {
-    "+256754738336",
-    "+256741483019",
-    "+256760760092",
-    "+256754738339",
-    "+256754738340"
-  };
-
-  const char* message = "Hey! water levels are getting low. Please do the needful to make sure people are in a safe state of having enough water....";
-
-  // Highlighted part: Loop through the phone numbers and send SMS to each one
-  for (int i = 0; i < 5; i++) {
-    mySerial.print("AT+CMGS=\"");
-    mySerial.print(phoneNumbers[i]);
-    mySerial.println("\"");
-    updateSerial();
-    mySerial.print(message); //text content
-    updateSerial();
-    mySerial.write(26);
-    updateSerial();
-    delay(1000); 
-  }
+ mySerial.println("AT+CMGS=\"+256754738336\"");
+  updateSerial();
+  mySerial.print("Hey! water levels are getting low. Please do the needfull to make sure people are in a safe state of having enough water."); //text content
+  updateSerial();
+  mySerial.write(26);
 }
 
 void loop()
@@ -53,10 +34,10 @@ void updateSerial()
   delay(500);
   while (Serial.available()) 
   {
-    mySerial.write(Serial.read());
+    mySerial.write(Serial.read());//Forward what Serial received to Software Serial Port
   }
   while(mySerial.available()) 
   {
-    Serial.write(mySerial.read());
+    Serial.write(mySerial.read());//Forward what Software Serial received to Serial Port
   }
 }

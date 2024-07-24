@@ -87,3 +87,28 @@ void sendSMS(const char* message) {
   }
 }
 
+void loop() {
+  // Trigger the ultrasonic sensor
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read the echo
+  duration = pulseIn(echoPin, HIGH);
+
+  // Calculate the distance
+  distance = duration * 0.034 / 2;
+
+  // Calculate the water level
+  int waterLevel = calculateWaterLevel(distance);
+
+  // Display the water level on the LCD
+  lcd.setCursor(1, 0);
+  lcd.print("Water Level: ");
+  lcd.setCursor(1, 1);
+  lcd.print(waterLevel);
+  lcd.print(" cm");
+
+  

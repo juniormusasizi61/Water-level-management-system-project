@@ -35,3 +35,38 @@ int calculateWaterLevel(int distance) {
   return (waterLevel < 0) ? 0 : waterLevel;
 }
 
+void setup() {
+  // Initialize serial communication
+  Serial.begin(115200);
+
+  // Initialize SIM800L communication
+  sim800.begin(9600);
+
+  // Initialize LCD
+  lcd.init();
+  lcd.backlight();
+
+  // Set pin modes
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  pinMode(greenLedPin, OUTPUT);
+  pinMode(redLedPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+
+  // Turn off LEDs and buzzer
+  digitalWrite(greenLedPin, LOW);
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+
+  Serial.println("Setup complete");
+
+  // Setup SIM800L
+  delay(1000);
+  sim800.println("AT");
+  delay(100);
+  sim800.println("AT+CMGF=1"); // Set SMS to text mode
+  delay(100);
+  sim800.println("AT+CNMI=1,2,0,0,0"); // Configure SMS to be sent to the serial port
+  delay(100);
+}
+

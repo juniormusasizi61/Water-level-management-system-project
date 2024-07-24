@@ -111,4 +111,24 @@ void loop() {
   lcd.print(waterLevel);
   lcd.print(" cm");
 
-  
+  // Control LEDs and buzzer based on water level
+  digitalWrite(greenLedPin, LOW);
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+
+  if (waterLevel >= 30) {
+    digitalWrite(greenLedPin, HIGH);
+    messageSent = false; // Reset message flag if water level is safe
+  } else {
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+
+    if (!messageSent) {
+      sendSMS("Warning: Water level is below 30 cm!"); // Edit this message
+      messageSent = true; // Set flag to true to avoid resending
+    }
+  }
+
+  // Delay before the next measurement
+  delay(2000);
+}

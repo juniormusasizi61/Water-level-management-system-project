@@ -70,3 +70,20 @@ void setup() {
   delay(100);
 }
 
+void sendSMS(const char* message) {
+  for (int i = 0; i < sizeof(phoneNumbers) / sizeof(phoneNumbers[0]); ++i) {
+    sim800.print("AT+CMGS=\"");
+    sim800.print(phoneNumbers[i]);
+    sim800.println("\"");
+    delay(500); // Increased delay
+    sim800.print(message);
+    delay(500);
+    sim800.write(26); // ASCII code of CTRL+Z
+    delay(5000); // Wait for the message to be sent and processed
+    while (sim800.available()) {
+      char c = sim800.read();
+      Serial.write(c); // Print response for debugging
+    }
+  }
+}
+

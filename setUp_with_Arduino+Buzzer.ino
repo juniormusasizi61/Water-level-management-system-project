@@ -28,6 +28,13 @@ SoftwareSerial sim800(sim800TxPin, sim800RxPin);
 // ESP-01 initialization
 SoftwareSerial esp(espRxPin, espTxPin);
 
+// ThingSpeak settings
+const char* ssid = "MayaJ";          // Replace with your WiFi SSID
+const char* password = "Astromaya11";  // Replace with your WiFi Password
+const char* apiKey = "7NWM6AHFBYDGMB5B";  // Replace with your ThingSpeak API Key
+const char* server = "api.thingspeak.com";
+
+
 int calculateWaterLevel(int distance) {
   int waterLevel = maxDistance - distance;
   if (waterLevel < 0) {

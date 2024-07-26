@@ -184,8 +184,9 @@ void loop() {
   
   if (waterLevel >= 30) {
     digitalWrite(greenLedPin, HIGH);
-
-  } else {
+    messageSent = false; // Reset message flag if water level is safe
+  } 
+  else {
     digitalWrite(redLedPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
   }

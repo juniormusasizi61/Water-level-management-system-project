@@ -189,6 +189,11 @@ void loop() {
   else {
     digitalWrite(redLedPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
+
+    if (!messageSent) {
+        sendSMS("Yo! Warning: Water level is below 30 cm!"); // Edit this message
+        messageSent = true; // Set flag to true to avoid resending
+      }
   }
   
   delay(2000);

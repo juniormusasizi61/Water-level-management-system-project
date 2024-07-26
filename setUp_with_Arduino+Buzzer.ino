@@ -195,6 +195,9 @@ void loop() {
         messageSent = true; // Set flag to true to avoid resending
       }
   }
-  
-  delay(2000);
+  azw
+    // Send data to ThingSpeak
+    sendToThingSpeak(waterLevewql);
+  }
 }
+  

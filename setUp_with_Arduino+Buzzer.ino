@@ -147,9 +147,16 @@ void sendSMS(const char* message) {
 }
 
 void loop() {
+   unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+
+
+
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
-  
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
@@ -163,12 +170,13 @@ void loop() {
   
   int waterLevel = calculateWaterLevel(distance);
   
-  lcd.setCursor(1,0 );
-  lcd.print("Water Level: ");
- 
-  lcd.setCursor(1,1);
-  lcd.print(waterLevel);
-  lcd.print(" cm");
+ // Display the water level on the LCD
+    lcd.setCursor(0, 0);
+    lcd.print("Water Level: ");
+    lcd.setCursor(0, 1);
+    lcd.print(waterLevel);
+    lcd.print(" cm");
+
 
   digitalWrite(greenLedPin, LOW);
   digitalWrite(redLedPin, LOW);

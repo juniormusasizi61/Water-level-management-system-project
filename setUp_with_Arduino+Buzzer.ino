@@ -82,7 +82,26 @@ void setup() {
   delay(2000);  // Allow a short delay for initialization
 }
 
+void connectToWiFi() {
+  esp.println("AT+RST");
+  delay(1000);
+  esp.println("AT+CWMODE=1");
+  delay(1000);
+  esp.print("AT+CWJAP=\"");
+  esp.print(ssid);
+  esp.print("\",\"");
+  esp.print(password);
+  esp.println("\"");
+  delay(5000);
 
+  // Check connection
+  esp.println("AT+CIFSR");
+  delay(2000);
+  while (esp.available()) {
+    String response = esp.readString();
+    Serial.println(response);
+  }
+}
 
 
 

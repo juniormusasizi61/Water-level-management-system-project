@@ -118,6 +118,16 @@ void sendToThingSpeak(int waterLevel) {
   httpRequest += "\r\n";
   httpRequest += "Connection: close\r\n\r\n";
   
+ esp.print("AT+CIPSEND=");
+  esp.println(httpRequest.length());
+  delay(1000);
+  
+  esp.print(httpRequest);
+  delay(1000);
+  
+  esp.println("AT+CIPCLOSE");
+  delay(1000);
+}
 
 
 void loop() {

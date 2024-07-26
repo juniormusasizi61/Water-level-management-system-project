@@ -1,20 +1,19 @@
 #include "LiquidCrystal_I2C.h"
 #include <SoftwareSerial.h>
 
+//pin defineitions
+#define trigPin 2
+#define echoPin 3
+#define greenLedPin 4
+#define redLedPin 5
+#define buzzerPin 6
+
+// Maximum distance to measure (in cm)
+#define maxDistance 50
+
 // Initialize the LCD with I2C address 0x27 and 16x2 display
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Pin definitions
-const int trigPin = 2;
-const int echoPin = 3;
-const int greenLedPin = 4;
-const int redLedPin = 5;
-const int buzzerPin = 6;
-const int sim800TxPin = 7;
-const int sim800RxPin = 8;
-
-// Maximum distance to measure (in cm)
-const int maxDistance = 50;
 
 // Variables to store duration and distance
 long duration;

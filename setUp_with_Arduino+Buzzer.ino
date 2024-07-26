@@ -1,11 +1,12 @@
 #include "LiquidCrystal_I2C.h"
 #include <SoftwareSerial.h>
 
+// Initialize the LCD with I2C address 0x27 and 16x2 display
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
+// Pin definitions
 const int trigPin = 2;
 const int echoPin = 3;
-
 const int greenLedPin = 4;
 const int redLedPin = 5;
 const int buzzerPin = 6;
@@ -53,7 +54,7 @@ void setup() {
 
   // Initialize ESP-01 communication
   esp.begin(115200);
-  
+
  // Initialize LCD
   lcd.init();
   lcd.backlight();

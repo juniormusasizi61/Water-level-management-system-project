@@ -102,7 +102,22 @@ void connectToWiFi() {
     Serial.println(response);
   }
 }
+void sendToThingSpeak(int waterLevel) {
+  esp.print("AT+CIPSTART=\"TCP\",\"");
+  esp.print(server);
+  esp.println("\",80");
+  delay(2000);
 
+  String httpRequest = "GET /update?api_key=";
+  httpRequest += apiKey;
+  httpRequest += "&field1=";
+  httpRequest += String(waterLevel);
+  httpRequest += " HTTP/1.1\r\n";
+  httpRequest += "Host: ";
+  httpRequest += server;
+  httpRequest += "\r\n";
+  httpRequest += "Connection: close\r\n\r\n";
+  
 
 
 void loop() {

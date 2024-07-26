@@ -161,13 +161,14 @@ void loop() {
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
   
+  // Read the echo
   duration = pulseIn(echoPin, HIGH);
   
   Serial.print("Duration: ");
   Serial.println(duration);
-  
+  // Calculate the distance
   distance = duration * 0.034 / 2;
-  
+   // Calculate the water level
   int waterLevel = calculateWaterLevel(distance);
   
  // Display the water level on the LCD
@@ -177,7 +178,7 @@ void loop() {
     lcd.print(waterLevel);
     lcd.print(" cm");
 
-
+    // Control LEDs and buzzer based on water level
   digitalWrite(greenLedPin, LOW);
   digitalWrite(redLedPin, LOW);
   digitalWrite(buzzerPin, LOW);

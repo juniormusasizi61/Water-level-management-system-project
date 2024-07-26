@@ -1,4 +1,6 @@
 #include "LiquidCrystal_I2C.h"
+#include <SoftwareSerial.h>
+
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 const int trigPin = 2;
@@ -7,6 +9,10 @@ const int echoPin = 3;
 const int greenLedPin = 4;
 const int redLedPin = 5;
 const int buzzerPin = 6;
+const int sim800TxPin = 7;
+const int sim800RxPin = 8;
+const int espTxPin = 10;
+const int espRxPin = 11;
 
 const int maxDistance = 50;
 

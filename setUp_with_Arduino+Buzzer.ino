@@ -41,10 +41,7 @@ const char* phoneNumbers[] = {
 
 int calculateWaterLevel(int distance) {
   int waterLevel = maxDistance - distance;
-  if (waterLevel < 0) {
-    waterLevel = 0; 
-  }
-  return waterLevel;
+  return (waterLevel < 0) ? 0 : waterLevel;
 }
 
 void setup() {

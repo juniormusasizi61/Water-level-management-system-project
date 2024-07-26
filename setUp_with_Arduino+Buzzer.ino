@@ -45,16 +45,19 @@ int calculateWaterLevel(int distance) {
 }
 
 void setup() {
+  // Initialize serial communication
   Serial.begin(115200);
+
    // Initialize SIM800L communication
   sim800.begin(9600);
 
   // Initialize ESP-01 communication
   esp.begin(115200);
-
+  
+ // Initialize LCD
   lcd.init();
   lcd.backlight();
-  
+
  // Set pin modes
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);

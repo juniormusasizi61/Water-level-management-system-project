@@ -46,6 +46,12 @@ int calculateWaterLevel(int distance) {
 
 void setup() {
   Serial.begin(115200);
+   // Initialize SIM800L communication
+  sim800.begin(9600);
+
+  // Initialize ESP-01 communication
+  esp.begin(115200);
+
   lcd.init();
   lcd.backlight();
 
@@ -60,7 +66,25 @@ void setup() {
   digitalWrite(buzzerPin, LOW);
 
   Serial.println("Setup complete");
+
+   // Setup SIM800L
+  sim800.println("AT");
+  delay(50);
+  sim800.println("AT+CMGF=1"); // Set SMS to text mode
+  delay(50);
+  sim800.println("AT+CNMI=1,2,0,0,0"); // Configure SMS to be sent to the serial port
+  delay(50);
+
+  // Setup ESP-01
+  connectToWiFi();
+
+  // Allow time for the HC-SR04 to warm up
+  delay(2000);  // Allow a short delay for initialization
 }
+
+
+
+
 
 void loop() {
   digitalWrite(trigPin, LOW);

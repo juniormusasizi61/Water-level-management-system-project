@@ -34,6 +34,10 @@ const char* password = "Astromaya11";  // Replace with your WiFi Password
 const char* apiKey = "7NWM6AHFBYDGMB5B";  // Replace with your ThingSpeak API Key
 const char* server = "api.thingspeak.com";
 
+const char* phoneNumbers[] = {
+  "+256740171596", // Replace with your first phone number
+  "+256754269490"  // Replace with your second phone number
+};
 
 int calculateWaterLevel(int distance) {
   int waterLevel = maxDistance - distance;

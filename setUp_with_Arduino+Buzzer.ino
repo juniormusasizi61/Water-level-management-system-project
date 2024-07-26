@@ -18,6 +18,15 @@ const int maxDistance = 50;
 
 long duration;
 int distance;
+bool messageSent = false;  // Flag to check if message was sent
+unsigned long previousMillis = 0;
+const unsigned long interval = 500; // 0.5 seconds interval
+
+// SIM800L initialization
+SoftwareSerial sim800(sim800TxPin, sim800RxPin);
+
+// ESP-01 initialization
+SoftwareSerial esp(espRxPin, espTxPin);
 
 int calculateWaterLevel(int distance) {
   int waterLevel = maxDistance - distance;

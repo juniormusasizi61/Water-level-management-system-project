@@ -54,13 +54,15 @@ void setup() {
 
   lcd.init();
   lcd.backlight();
-
+  
+ // Set pin modes
   pinMode(trigPin, OUTPUT);
   pinMode(echoPin, INPUT);
   pinMode(greenLedPin, OUTPUT);
   pinMode(redLedPin, OUTPUT);
   pinMode(buzzerPin, OUTPUT);
 
+ // Turn off LEDs and buzzer
   digitalWrite(greenLedPin, LOW);
   digitalWrite(redLedPin, LOW);
   digitalWrite(buzzerPin, LOW);
@@ -154,18 +156,16 @@ void loop() {
 
 
 
-
+ // Trigger the ultrasonic sensor
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
   delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
-  
+
   // Read the echo
   duration = pulseIn(echoPin, HIGH);
   
-  Serial.print("Duration: ");
-  Serial.println(duration);
   // Calculate the distance
   distance = duration * 0.034 / 2;
    // Calculate the water level

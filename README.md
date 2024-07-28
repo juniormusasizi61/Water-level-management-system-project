@@ -41,7 +41,9 @@ these anable the system to transmit data to the cloud server. for this system we
 <br>
 4.**data storage**<br>
    The system stores the collected data locally or on the cloud. for cloud storage we use thingspeak data visualisation platform with matlab.<br>
-   
+5. **UI**<br>
+for monitoring and managing the system, it uses a web interface built using html, css and javascript to set the thresholds and the initial heights of the tanks to enable the syste be spplied to different tanks by different users.<br>
+6. 
    
 <br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.

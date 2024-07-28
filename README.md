@@ -30,7 +30,15 @@ for water level usage patterns we shall use thingspeak.com iot data visualisatio
 Configure threshold levels, email notifications, and other settings in the code snippets included in the github repository for the different components.
 
 <br>**Logs:** <br>View historical water level data and system logs for analysis.
-
+<br>
+**components**<br>
+1. **water level sensors <br>
+these are used to measure water levels in the tanks or reservoirs where we use the ultrasonic sensor (HC-SR04) for this project <br>
+2. **microcontroller/processor**<br>
+these process sensor data and control the system where we use the ESP32 mcu and Arduino Uno MCU<br>
+3.**communication modules**<br>
+these anable the system to transmit data to the cloud server. for this system we use the built-in Wifi module for ESP32
+<br>
 <br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.
 

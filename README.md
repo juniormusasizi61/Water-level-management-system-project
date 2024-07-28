@@ -39,6 +39,9 @@ these process sensor data and control the system where we use the ESP32 mcu and 
 3.**communication modules**<br>
 these anable the system to transmit data to the cloud server. for this system we use the built-in Wifi module for ESP32
 <br>
+4.__data storage__<br>
+   The system stores the collected data locally or on the cloud. for cloud storage we use thingspeak data visualisation platform with matlab.<br>
+   
 <br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.
 

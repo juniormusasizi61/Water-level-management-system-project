@@ -47,7 +47,7 @@ void loop()
 void updateSerial()
 {
   delay(500); // Wait for half a second to allow serial data to be received
- 
+ s
   while (Serial.available()) 
   {
     mySerial.write(Serial.read()); // Forward what Serial received to Software Serial Port

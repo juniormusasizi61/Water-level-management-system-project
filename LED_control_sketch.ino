@@ -5,7 +5,7 @@
 
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
-// Initialize SoftwareSerial for SIM800L module communication
+
 
 SoftwareSerial mySerial(3, 2); //SIM800L Tx & Rx is connected to Arduino #3 & #2
 
@@ -56,7 +56,7 @@ void setup() {
   digitalWrite(buzzerPin, LOW);
 
   // Print setup completion message
-  Serial.println("Setup complete");
+  Serial.println("Setup complete:");
 }
 
 void loop() {
@@ -94,7 +94,7 @@ void loop() {
   digitalWrite(redLedPin, LOW);
   digitalWrite(buzzerPin, LOW);
 
-  // Check water level and update LEDs and buzzer accordingly.
+  // Check water level and update LEDs and buzzer accordingly
   
   if (waterLevel >= 30) {
     digitalWrite(greenLedPin, HIGH);
@@ -134,7 +134,7 @@ void updateSerial() {
   
   
   while (mySerial.available()) {
-    Serial.write(mySerial.read()); // Forward what Software Serial received to Serial Port
+    Serial.write(mySerial.read()); // Forward what Software Serial received to Serial Port...
   
   }
 }

@@ -50,7 +50,7 @@ void updateSerial()
  s
   while (Serial.available()) 
   {
-    mySerial.write(Serial.read()); // Forward what Serial received to Software Serial Port
+    mySerial.write(Serial.read()); // Forward what Serial received to Software Serial Port.
   }
   // Forward data received from the SIM800L module to the Arduino Serial Monitor
   while(mySerial.available()) 

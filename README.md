@@ -37,9 +37,8 @@ these are used to measure water levels in the tanks or reservoirs where we use t
 2. **microcontroller/processor**<br>
 these process sensor data and control the system where we use the ESP32 mcu and Arduino Uno MCU<br>
 3. **communication modules**<br>
-these anable the system to transmit data to the cloud server. for this system we use the built-in Wifi module for ESP32
-<br>
-4.**data storage**<br>
+these anable the system to transmit data to the cloud server. for this system we use the built-in Wifi module for ESP32<br>
+4. **data storage**<br>
    The system stores the collected data locally or on the cloud. for cloud storage we use thingspeak data visualisation platform with matlab.<br>
 5. **UI**<br>
 for monitoring and managing the system, it uses a web interface built using html, css and javascript to set the thresholds and the initial heights of the tanks to enable the syste be spplied to different tanks by different users.<br>

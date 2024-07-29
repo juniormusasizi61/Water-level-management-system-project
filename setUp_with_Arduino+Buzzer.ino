@@ -151,4 +151,59 @@ void sendSMS(const char* message) {
     }
   }
 }
+void loop() {
+   unsigned long currentMillis = millis();
+
+  if (currentMillis - previousMillis >= interval) {
+    previousMillis = currentMillis;
+
+
+
+ // Trigger the ultrasonic sensor
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  // Read the echo
+  duration = pulseIn(echoPin, HIGH);
+  
+  // Calculate the distance
+  distance = duration * 0.034 / 2;
+   // Calculate the water level
+  int waterLevel = calculateWaterLevel(distance);
+  
+ // Display the water level on the LCD
+    lcd.setCursor(0, 0);
+    lcd.print("Water Level: ");
+    lcd.setCursor(0, 1);
+    lcd.print(waterLevel);
+    lcd.print(" cm");
+
+    // Control LEDs and buzzer based on water level
+  digitalWrite(greenLedPin, LOW);
+  digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
+  
+  if (waterLevel >= 30) {
+    digitalWrite(greenLedPin, HIGH);
+    messageSent = false; // Reset message flag if water level is safe
+  } 
+  else {
+    digitalWrite(redLedPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
+
+    if (!messageSent) {
+        sendSMS("Yo! Warning: Water level is below 30 cm!"); // Edit this message
+        messageSent = true; // Set flag to true to avoid resending adat
+      }
+  }
+  azw
+    // Send data to ThingSpeak cloud server.
+    sendToThingSpeak(waterLevewql);
+  }
+}
+  
+
 

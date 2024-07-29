@@ -57,6 +57,7 @@ void setup() {
 
  // Initialize LCD
   lcd.init();
+  lcd.clear();
   lcd.backlight();
 
  // Set pin modes

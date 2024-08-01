@@ -30,3 +30,27 @@ void setup() {
   digitalWrite(buzzerPin, LOW);
 
   Serial.println("Setup complete");
+  // Connect to ThingSpeak WiFi
+  WiFi.begin(ssidThingSpeak, passwordThingSpeak);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to ThingSpeak WiFi...");
+  }
+  Serial.println("Connected to ThingSpeak WiFi");
+
+  // Initialize ThingSpeak with WiFiClient
+  ThingSpeak.begin(client);
+
+  // Setup WiFi access point
+  WiFi.softAP(ssidAP, passwordAP);
+  WiFi.softAPConfig(local_ip, gateway, subnet);
+  delay(100);
+
+  // Serve the main HTML page
+  server.on("/", HTTP_GET, handleRoot);
+
+  // Handle settings
+  server.on("/set_max_distance", HTTP_GET, handleSetMaxDistance);
+  server.on("/set_threshold", HTTP_GET, handleSetThreshold);
+  server.on("/set_phone_number", HTTP_GET, handleSetPhoneNumber);
+  server.on("/water_level", HTTP_GET, handleWaterLevel);

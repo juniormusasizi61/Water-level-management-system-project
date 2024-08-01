@@ -1,1 +1,6 @@
 *.json
+# Ignore VS Code settings
+.vscode/settings.json
+
+# Ignore Arduino settings
+.vscode/arduino.json

@@ -4,3 +4,7 @@
     digitalWrite(yellowLedPin, LOW);
     digitalWrite(redLedPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
+    if (!messageSent) {
+      sendSMS(phoneNumber, alertMessage);
+      messageSent = true;
+    }

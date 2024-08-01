@@ -35,3 +35,14 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2; // Calculate distance in cm
   waterLevel = calculateWaterLevel(distance); // Update the global variable
+
+// Print water level to serial and LCD
+  Serial.print("Water Level: ");
+  Serial.print(waterLevel);
+  Serial.println(" cm");
+
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Water Level:");
+  lcd.setCursor(0, 1);
+  lcd.print(String(waterLevel) + " cm");

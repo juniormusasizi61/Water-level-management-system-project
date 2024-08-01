@@ -6,3 +6,20 @@ void updateSerial() {
     mySerial.write(Serial.read());
   }
 }
+void sendSMS(const String &phoneNumber, const char* message) {
+  Serial.print("Sending SMS to: ");
+  Serial.println(phoneNumber);
+
+  mySerial.println("AT+CMGF=1");  // Set SMS mode to text
+  delay(1000);
+  updateSerial();
+
+  mySerial.print("AT+CMGS=\"");
+  mySerial.print(phoneNumber);
+  mySerial.println("\"");
+  delay(1000); // Allow time for SIM800L to process
+  updateSerial();
+
+  mySerial.print(message);
+  delay(1000); // Allow time for SIM800L to process
+  updateSerial();

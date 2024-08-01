@@ -23,3 +23,15 @@ void sendSMS(const String &phoneNumber, const char* message) {
   mySerial.print(message);
   delay(1000); // Allow time for SIM800L to process
   updateSerial();
+}
+void loop() {
+  // Measure water level using ultrasonic sensor
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * 0.034 / 2; // Calculate distance in cm
+  waterLevel = calculateWaterLevel(distance); // Update the global variable

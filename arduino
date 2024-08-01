@@ -46,3 +46,7 @@ void loop() {
   lcd.print("Water Level:");
   lcd.setCursor(0, 1);
   lcd.print(String(waterLevel) + " cm");
+
+   // Update ThingSpeak with water level
+  ThingSpeak.setField(1, waterLevel);
+  ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);

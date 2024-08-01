@@ -9,3 +9,13 @@ void handleSetMaxDistance() {
   }
 }
 
+void handleSetThreshold() {
+  if (server.hasArg("threshold")) {
+    threshold = server.arg("threshold").toInt();
+    Serial.println("Threshold set to: " + String(threshold));
+    server.sendHeader("Location", "/");
+    server.send(303);
+  } else {
+    server.send(400, "text/plain", "Bad Request");
+  }
+}

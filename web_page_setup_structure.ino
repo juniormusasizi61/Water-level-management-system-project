@@ -19,3 +19,14 @@ void handleSetThreshold() {
     server.send(400, "text/plain", "Bad Request");
   }
 }
+
+void handleSetPhoneNumber() {
+  if (server.hasArg("phone_number")) {
+    phoneNumber = server.arg("phone_number");
+    Serial.println("Phone number set to: " + phoneNumber);
+    server.sendHeader("Location", "/");
+    server.send(303);
+  } else {
+    server.send(400, "text/plain", "Bad Request");
+  }
+}

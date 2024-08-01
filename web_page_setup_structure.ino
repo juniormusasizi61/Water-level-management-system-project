@@ -30,3 +30,7 @@ void handleSetPhoneNumber() {
     server.send(400, "text/plain", "Bad Request");
   }
 }
+void handleWaterLevel() {
+  String json = "{\"level\": " + String(waterLevel) + "}";
+  server.send(200, "application/json", json);
+}

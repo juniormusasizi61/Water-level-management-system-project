@@ -54,3 +54,19 @@ void setup() {
   server.on("/set_threshold", HTTP_GET, handleSetThreshold);
   server.on("/set_phone_number", HTTP_GET, handleSetPhoneNumber);
   server.on("/water_level", HTTP_GET, handleWaterLevel);
+   // Start the server
+  server.begin();
+  Serial.println("HTTP server started");
+
+  // Setup SIM800L
+  delay(1000);
+  mySerial.println("AT"); // Check communication
+  updateSerial();
+  delay(500);
+  mySerial.println("AT+CMGF=1"); // Set SMS to text mode
+  updateSerial();
+  delay(500);
+  mySerial.println("AT+CNMI=1,2,0,0,0"); // Configure SMS to be sent to the serial port
+  updateSerial();
+  delay(500);
+}

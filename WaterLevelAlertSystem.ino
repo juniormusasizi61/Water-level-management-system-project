@@ -48,6 +48,11 @@ void handleRoot() {
   html += "<form action=\"/set_max_distance\" method=\"GET\">\n";
   html += "<input type=\"number\" name=\"max_distance\" min=\"0\" max=\"50\" value=\"" + String(maxDistance) + "\">\n";
   html += "<input class=\"button\" type=\"submit\" value=\"Set\">\n";
+   html += "</form>\n";
+  html += "<h3>Set Threshold</h3>\n";
+  html += "<form action=\"/set_threshold\" method=\"GET\">\n";
+  html += "<input type=\"number\" name=\"threshold\" min=\"0\" max=\"50\" value=\"" + String(threshold) + "\">\n";
+  html += "<input class=\"button\" type=\"submit\" value=\"Set\">\n";
 
 
   

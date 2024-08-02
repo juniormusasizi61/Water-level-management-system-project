@@ -7,31 +7,31 @@ if (waterLevel < threshold) {
     digitalWrite(redLedPin, HIGH);
     digitalWrite(buzzerPin, HIGH);
     
-    //Check if the alert message has not been sent
+  //  Check if the alert message has not been sent..
     if (!messageSent) {
-        //Send an SMS alert and set the messageSent flag to true.
+        //  Send an SMS alert and set the messageSent flag to true..
         sendSMS(phoneNumber, alertMessage);
         messageSent = true;
     }
 } else if (waterLevel == maxDistance / 2) {
-    //If the water level is at half of the max distance, turn on the yellow LED, turn off others and the buzzer.
+    //  If the water level is at half of the max distance, turn on the yellow LED, turn off others and the buzzer..
     digitalWrite(greenLedPin, LOW);
     digitalWrite(redLedPin, LOW);
     digitalWrite(yellowLedPin, HIGH);
     digitalWrite(buzzerPin, LOW);
 } else {
-    //If the water level is above the threshold, turn on the green LED, turn off others and the buzzer.
+    // If the water level is above the threshold, turn on the green LED, turn off others and the buzzer..
     digitalWrite(greenLedPin, HIGH);
     digitalWrite(yellowLedPin, LOW);
     digitalWrite(redLedPin, LOW);
     digitalWrite(buzzerPin, LOW);
-    //Reset the messageSent flag to allow future alerts.
+    //  Reset the messageSent flag to allow future alerts..
     messageSent = false;
 }
-// Handle client requests
+//Handle client requests...
   server.handleClient();
 
-  delay(1000); // Wait before taking next measurement
+  delay(1000); //Wait before taking next measurement...
 }
 void handleRoot() {
   String html = "<!DOCTYPE html><html>\n";
@@ -41,5 +41,10 @@ void handleRoot() {
   html += "body{margin-top: 50px;} h1 {color: #444444;margin: 50px auto 30px;} h3 {color: #444444;margin-bottom: 50px;}\n";
   html += ".button {display: block;width: 80px;background-color: #3498db;border: none;color: white;padding: 13px 30px;text-decoration: none;font-size: 25px;margin: 0px auto 35px;cursor: pointer;border-radius: 4px;}\n";
   html += "p {font-size: 14px;color: #888;margin-bottom: 10px;}\n";
+  html += "</style>\n";
+  html += "</head>\n<body>\n";
+  html += "<h1>Water Level Control</h1>\n";
+  html += "<h3>Set Tank height</h3>\n";
+  
 
   

@@ -8,3 +8,7 @@
 // WiFi credentials for ThingSpeak
 const char* ssidThingSpeak = "Alvin";
 const char* passwordThingSpeak = "AliDaT12";
+
+// WiFi credentials for Access Point
+const char* ssidAP = "ESP32";
+const char* passwordAP = "12345678";

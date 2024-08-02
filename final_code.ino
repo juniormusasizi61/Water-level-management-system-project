@@ -18,7 +18,6 @@ IPAddress local_ip(192, 168, 1, 1);
 IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 
-// Define WiFiClient object
 WiFiClient client;
 
 WebServer server(80);
@@ -30,14 +29,13 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 const int trigPin = 18;         // GPIO 18 for ultrasonic sensor trigger
 const int echoPin = 19;         // GPIO 19 for ultrasonic sensor echo
 const int greenLedPin = 23;     // GPIO 23 for green LED
-const int yellowLedPin = 15;    // GPIO 22 for yellow LED
+const int yellowLedPin = 15;    // GPIO 15 for yellow LED
 const int redLedPin = 16;       // GPIO 16 for red LED
 const int buzzerPin = 17;       // GPIO 17 for buzzer
 const int sim800TxPin = 13;     // GPIO 13 for SIM800L TX
 const int sim800RxPin = 12;     // GPIO 12 for SIM800L RX
 
-// Maximum distance to measure (in cm)
-int maxDistance = 22;
+int maxDistance = 22; //Default tank height
 int threshold = 5;  // Default threshold
 
 // Variables to store duration and distance

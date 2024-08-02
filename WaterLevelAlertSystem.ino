@@ -61,6 +61,17 @@ void handleRoot() {
   html += "</form>\n";
   html += "<h3>Current Water Level</h3>\n";
   html += "<p id=\"waterLevel\">Fetching data...</p>\n";
+  html += "<script>\n";
+  html += "function fetchData() {\n";
+  html += "fetch('/water_level').then(response => response.json()).then(data => {\n";
+  html += "document.getElementById('waterLevel').innerText = 'Current Water Level: ' + data.level + ' cm';\n";
+  html += "});\n";
+  html += "}\n";
+  html += "setInterval(fetchData, 2000);\n";
+  html += "</script>\n";
+  html += "</body>\n</html>\n";
+  server.send(200, "text/html", html);
+}
 
 
   

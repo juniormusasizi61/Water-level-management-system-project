@@ -77,7 +77,7 @@ Installation
 3. Access the web interface to monitor and manage the water levels.
 
 ###thingspeak image 
-![thingspeak data log](img/thingspeak.jpg)
+![thingspeak log](img/thingspeak.jpg)
 ###gannt chart image 
 ![gannt chart image ](<img/gannt chart.jpg>)
    

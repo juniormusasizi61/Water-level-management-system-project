@@ -6,6 +6,7 @@ const int echoPin = 19;
 
 const int greenLedPin = 16;
 const int redLedPin = 4;
+const int buzzerPin = 6;
 
 const int maxDistance = 50;
 
@@ -29,9 +30,11 @@ void setup() {
   pinMode(echoPin, INPUT);
   pinMode(greenLedPin, OUTPUT);
   pinMode(redLedPin, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
 
   digitalWrite(greenLedPin, LOW);
   digitalWrite(redLedPin, LOW);
+  digitalWrite(buzzerPin, LOW);
 
   Serial.println("Setup complete");
 }
@@ -68,6 +71,7 @@ void loop() {
 
   } else {
     digitalWrite(redLedPin, HIGH);
+    digitalWrite(buzzerPin, HIGH);
   }
   
   delay(1000);

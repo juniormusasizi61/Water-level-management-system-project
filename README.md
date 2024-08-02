@@ -30,6 +30,7 @@ for water level usage patterns we shall use thingspeak.com iot data visualisatio
 Configure threshold levels, email notifications, and other settings in the code snippets included in the github repository for the different components.
 
 <br>**Logs:** <br>View historical water level data and system logs for analysis.
+
 <br>
 **components of the system**<br>
 1. **water level sensors** <br>
@@ -72,12 +73,9 @@ Installation
 
 #### Usage
 
-1. Power on the system.
+1. Power on the system .
 2. The system will automatically connect to the Wi-Fi network and start sending water level data to ThingSpeak.
-3. Access the web interface to monitor and manage the water levels.
-
-
-
+3. Access the web interface to monitor and manage the water levels .
 <br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.
 
@@ -85,6 +83,6 @@ Contributions are welcome! boosting our project is what we prefer. Please fork t
 **Acknowledgements**
 Sensor Integration: Thanks to Arduino for their sensor integration support and great thanks to our project co-ordinator Mr. Engineer Baino for his endless support and guidance as we work towards archieving the objectives of our project.
 
-For support, reach out to: 
-alvinnahereza@gmail.com ,  juniormusasizi6@gmail.com ,  arindaj33@gmail.com ,  mutsakaemmason@gmail.com ,  mayaj5424@gmail.com
+For support, reach out to; 
+alvinnahereza@gmail.com ,  juniormusasizi6@gmail.com ,  arindaj33@gmail.com ,  mutsakaemmason@gmail.com and mayaj5424@gmail.com
 

@@ -76,6 +76,9 @@ Installation
 2. The system will automatically connect to the Wi-Fi network and start sending water level data to ThingSpeak.
 3. Access the web interface to monitor and manage the water levels.
 
+![thingspeak data log](img/img/thingspeak.jpg)
+
+![project gannt chart](img/img/gannt chart.jpg)
    
 <br>**Contributing**<br>
 Contributions are welcome! boosting our project is what we prefer. Please fork the repository and submit a pull request with your changes. For major updates, please open an issue first to discuss potential changes.

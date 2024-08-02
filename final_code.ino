@@ -17,3 +17,8 @@ const char* passwordAP = "12345678";
 IPAddress local_ip(192, 168, 1, 1);
 IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
+
+// Define WiFiClient object
+WiFiClient client;
+
+WebServer server(80);

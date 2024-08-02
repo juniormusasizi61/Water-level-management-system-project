@@ -18,5 +18,8 @@
     digitalWrite(greenLedPin, HIGH);
     digitalWrite(yellowLedPin, LOW);
     digitalWrite(redLedPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+    messageSent = false;
+  }
      
   

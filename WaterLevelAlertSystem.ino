@@ -16,5 +16,7 @@
     digitalWrite(buzzerPin, LOW);
     }else {
     digitalWrite(greenLedPin, HIGH);
+    digitalWrite(yellowLedPin, LOW);
+    digitalWrite(redLedPin, LOW);
      
   

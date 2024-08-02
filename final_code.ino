@@ -53,3 +53,7 @@ SoftwareSerial mySerial(sim800TxPin, sim800RxPin); // Use UART1 for SIM800L
 String phoneNumber = "+256740171596"; // Default phone number
 
 const char* alertMessage = "WARNING:  Water level is getting low!";
+
+// ThingSpeak parameters
+unsigned long myChannelNumber = 2604177; 
+const char* myWriteAPIKey = "7NWM6AHFBYDGMB5B"; 

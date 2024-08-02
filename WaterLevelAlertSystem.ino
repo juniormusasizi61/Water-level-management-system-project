@@ -9,3 +9,10 @@
       sendSMS(phoneNumber, alertMessage);
       messageSent = true;
     }
+    }else if (waterLevel == maxDistance / 2) {
+    digitalWrite(greenLedPin, LOW);
+    digitalWrite(redLedPin, LOW);
+    digitalWrite(yellowLedPin, HIGH);
+    digitalWrite(buzzerPin, LOW);
+     
+  

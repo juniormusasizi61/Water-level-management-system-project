@@ -39,3 +39,9 @@ const int sim800RxPin = 12;     // GPIO 12 for SIM800L RX
 // Maximum distance to measure (in cm)
 int maxDistance = 22;
 int threshold = 5;  // Default threshold
+
+// Variables to store duration and distance
+long duration;
+int waterLevel ;
+int distance;
+bool messageSent = false;  // Flag to check if message was sent

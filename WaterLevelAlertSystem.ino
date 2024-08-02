@@ -9,7 +9,7 @@ if (waterLevel < threshold) {
     
   //Check if the alert message has not been sent
     if (!messageSent) {
-        // Send an SMS alert and set the messageSent flag to true
+        //Send an SMS alert and set the messageSent flag to true
         sendSMS(phoneNumber, alertMessage);
         messageSent = true;
     }
@@ -20,7 +20,7 @@ if (waterLevel < threshold) {
     digitalWrite(yellowLedPin, HIGH);
     digitalWrite(buzzerPin, LOW);
 } else {
-    // If the water level is above the threshold, turn on the green LED, turn off others and the buzzer
+    //If the water level is above the threshold, turn on the green LED, turn off others and the buzzer
     digitalWrite(greenLedPin, HIGH);
     digitalWrite(yellowLedPin, LOW);
     digitalWrite(redLedPin, LOW);
@@ -28,10 +28,10 @@ if (waterLevel < threshold) {
     // Reset the messageSent flag to allow future alerts
     messageSent = false;
 }
-// Handle client requests
+//Handle client requests
   server.handleClient();
 
-  delay(1000); // Wait before taking next measurement
+  delay(1000); //Wait before taking next measurement
 }
 void handleRoot() {
   String html = "<!DOCTYPE html><html>\n";
@@ -58,6 +58,9 @@ void handleRoot() {
   html += "<form action=\"/set_phone_number\" method=\"GET\">\n";
   html += "<input type=\"text\" name=\"phone_number\" value=\"" + phoneNumber + "\">\n";
   html += "<input class=\"button\" type=\"submit\" value=\"Set\">\n";
+  html += "</form>\n";
+  html += "<h3>Current Water Level</h3>\n";
+  html += "<p id=\"waterLevel\">Fetching data...</p>\n";
 
 
   

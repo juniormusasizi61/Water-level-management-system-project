@@ -53,6 +53,11 @@ void handleRoot() {
   html += "<form action=\"/set_threshold\" method=\"GET\">\n";
   html += "<input type=\"number\" name=\"threshold\" min=\"0\" max=\"50\" value=\"" + String(threshold) + "\">\n";
   html += "<input class=\"button\" type=\"submit\" value=\"Set\">\n";
+  html += "</form>\n";
+  html += "<h3>Set Phone number</h3>\n";
+  html += "<form action=\"/set_phone_number\" method=\"GET\">\n";
+  html += "<input type=\"text\" name=\"phone_number\" value=\"" + phoneNumber + "\">\n";
+  html += "<input class=\"button\" type=\"submit\" value=\"Set\">\n";
 
 
   

@@ -35,3 +35,7 @@ const int redLedPin = 16;       // GPIO 16 for red LED
 const int buzzerPin = 17;       // GPIO 17 for buzzer
 const int sim800TxPin = 13;     // GPIO 13 for SIM800L TX
 const int sim800RxPin = 12;     // GPIO 12 for SIM800L RX
+
+// Maximum distance to measure (in cm)
+int maxDistance = 22;
+int threshold = 5;  // Default threshold

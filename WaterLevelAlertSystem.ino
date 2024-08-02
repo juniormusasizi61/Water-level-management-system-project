@@ -28,5 +28,10 @@ if (waterLevel < threshold) {
     //Reset the messageSent flag to allow future alerts.
     messageSent = false;
 }
+// Handle client requests
+  server.handleClient();
+
+  delay(1000); // Wait before taking next measurement
+}
 
   

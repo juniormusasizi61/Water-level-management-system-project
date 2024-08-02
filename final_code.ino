@@ -45,3 +45,6 @@ long duration;
 int waterLevel ;
 int distance;
 bool messageSent = false;  // Flag to check if message was sent
+
+// SIM800L initialization
+SoftwareSerial mySerial(sim800TxPin, sim800RxPin); // Use UART1 for SIM800L

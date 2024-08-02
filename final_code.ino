@@ -4,3 +4,7 @@
 #include <ThingSpeak.h>
 #include <WebServer.h>
 #include <SoftwareSerial.h>
+
+// WiFi credentials for ThingSpeak
+const char* ssidThingSpeak = "Alvin";
+const char* passwordThingSpeak = "AliDaT12";

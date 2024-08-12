@@ -32,7 +32,7 @@ Configure threshold levels, email notifications, and other settings in the code 
 <br>**Logs:** <br>View historical water level data and system logs for analysis.
 
 <br>**components of the system**<br>
-1. water level sensors <br>
+1. **water level sensors** <br>
 these are used to measure water levels in the tanks or reservoirs where we use the ultrasonic sensor (HC-SR04) for this project <br>
 2. **microcontroller/processor**<br>
 these process sensor data and control the system where we use the ESP32 mcu and Arduino Uno MCU<br>

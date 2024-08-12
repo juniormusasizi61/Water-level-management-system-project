@@ -31,9 +31,8 @@ Configure threshold levels, email notifications, and other settings in the code 
 
 <br>**Logs:** <br>View historical water level data and system logs for analysis.
 
-<br>
-**components of the system**<br>
-1. **water level sensors** <br>
+<br>**components of the system**<br>
+1. water level sensors <br>
 these are used to measure water levels in the tanks or reservoirs where we use the ultrasonic sensor (HC-SR04) for this project <br>
 2. **microcontroller/processor**<br>
 these process sensor data and control the system where we use the ESP32 mcu and Arduino Uno MCU<br>
@@ -41,7 +40,7 @@ these process sensor data and control the system where we use the ESP32 mcu and 
 these anable the system to transmit data to the cloud server. for this system we use the built-in Wifi module for ESP32<br>
 4. **data storage**<br>
    The system stores the collected data locally or on the cloud. for cloud storage we use thingspeak data visualisation platform with matlab.<br>
-5. __UI__<br>
+5. **UI**<br>
 for monitoring and managing the system, it uses a web interface built using html, css and javascript to set the thresholds and the initial heights of the tanks to enable the syste be spplied to different tanks by different users.<br>
 6. **Enclosures**<br>
 Protects the electronic components from environmental factors. here we use Waterproof and dustproof cases.<br>
